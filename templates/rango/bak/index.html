@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+
+<html>
+
+	<head>
+		<title>Rango</title>
+	</head>
+	<body>
+		<h1> Rango say....</h1>
+		{% if categories %}
+		<ul>
+			<p> it is -likes </p>
+			{% for category in categories %}
+			<li><a href="/rango/category/{{ category.slug }}"> {{ category.name }}</a></li>
+			{% endfor %}
+		</ul>
+		<ul>
+			<p> it is likes</p>
+			{% for category_view in categories_view %}
+			<li><a href="/rango/category/{{ category_view.slug }}">{{ category_view  }}</a></li>
+			{% endfor  %}
+		</ul>	
+		{% else %}
+			<strong> there are no categories presevc. </strong>
+		{% endif  %}
+		<a href="/rango/add_category/" >add a NEW category</a><br />
+	</body>
+</html>

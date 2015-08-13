@@ -1,0 +1,19 @@
+{% extends "blog/base.html" %}
+
+{% block body_block %}
+	<h1>留言</h1>
+	<form method="post" action=".">
+					{% csrf_token %}
+					{% for hidden in form.hidden_fields %}
+						{{ hidden }}
+					{% endfor %}
+
+	
+	<p><label for="id_author">标题:</label> 
+	<input id="id_author" maxlength="30" name="author" type="text" /></p>
+	<p><label for="id_body">内容</label> 
+	<input id="id_body" maxlength="365" name="body" type="text" /> <span class="helptext">留言</span>
+	
+	<input type="submit" value="发表">
+	</form>
+{% endblock %}

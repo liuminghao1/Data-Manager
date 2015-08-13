@@ -1,0 +1,23 @@
+{% extends "blog/base.html"%}
+
+{% block body_block %}
+	{% for article in articles %}
+		<div class="blog-post">
+		  <h2 class="blog-post-title"> <a href="/blog/article/{{ article.id }}/">{{ article.title }}</a></h2>
+			<p class="blog-post-meta">{{ article.update_time }}</p>
+			<blockquote>
+				<pre>{{ article.body|truncatewords_html:20|safe }}</pre>
+			</blockquote>
+		<hr/>
+		</div><!-- /.blog-post -->
+	{% endfor %}	
+
+ 	{% include "blog/pageinfo.html" %}
+
+{% endblock %}
+	
+
+{% block category_block %}
+	{% include "blog/category.html" %}	
+{% endblock %}
+	

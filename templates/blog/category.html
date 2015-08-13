@@ -1,0 +1,9 @@
+
+<div class="sidebar-module">
+     <h4>文章分类</h4>
+	<ol class="list-unstyled">
+	{% for ctaegory,x in categorys %}
+		<li><a href="/blog/category/{{ctaegory}}">{{ ctaegory }}({{ x }})</a></li>
+	{% endfor  %}
+	</ol>
+     </div>

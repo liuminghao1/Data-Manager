@@ -1,0 +1,25 @@
+{% extends "data/add.html" %}
+
+{% block body %}
+	<div class="PTYPE"><ul><li class="button_tip"><a href="javascript:history.back(-1);">返回上一页</a></li></ul></div>
+	
+	<form action="/data/add/scenc" method="post" enctype="multipart/form-data" name="form_amtop" id="form_amtop" class="ma0">
+				{% csrf_token %}
+	<table width="100%" border="0" cellpadding="3" cellspacing="1" class="BTB">
+	<input name="moid" id="moid" type="hidden" value="">
+	<tr>
+		<td width="120">场景名称</td>
+		
+	<td><input name="scenc_name" id="scenc_name" type="text" value="" size=12  class="input_long" /></td>
+
+	</tr>
+	 <table class="fl" width="100%"><tr>
+ 	 <td height="50">
+	 <input name="Submit" type="submit" class="botton" value="提交">
+	 <input name="Submit" type="reset" class="botton" value="重置">
+	</td>
+	</tr>
+	</table></table></form>                </div>
+
+
+{% endblock %}

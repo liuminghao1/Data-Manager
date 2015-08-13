@@ -1,0 +1,45 @@
+{% extends 'bbs/base.html' %}
+
+{% block body_block %}
+								<div class="aw-item " data-topic-id="350,5,">
+	<a class="aw-user-name hidden-xs" data-id="1473" href="http://wenda.bootcss.com/people/lily" rel="nofollow"><img src="http://wenda.bootcss.com/uploads/avatar/000/00/14/73_avatar_max.jpg" alt="" /></a>	
+	<div class="aw-question-content">
+		<h4>
+						<a href="http://wenda.bootcss.com/question/397">bootstrap,模态窗口如何remote一个新的页面到现在的窗口？</a>
+					</h4>
+				<a href="http://wenda.bootcss.com/question/397#!answer_form" class="pull-right text-color-999">回复</a>
+				
+		<p>
+						
+													<a href="http://wenda.bootcss.com/people/lily" class="aw-user-name">lily</a> 
+				<span class="text-color-999">发起了问题 • 1 人关注 • 0 个回复 • 19 次浏览 • 14 小时前 
+				</span>
+									<span class="text-color-999 related-topic hide"> •  来自相关话题</span>
+		</p>
+		
+			</div>
+</div>
+<div class="aw-item " data-topic-id="314,">
+	<a class="aw-user-name hidden-xs" data-id="1292" href="http://wenda.bootcss.com/people/culm" rel="nofollow"><img src="http://wenda.bootcss.com/uploads/avatar/000/00/12/92_avatar_max.jpg" alt="" /></a>	
+	<div class="aw-question-content">
+		<h4>
+						<a href="http://wenda.bootcss.com/question/346">boostrap3,3,5的dropdown缺陷</a>
+					</h4>
+				<div class="pull-right hidden-xs contribute">
+			<span class="pull-right text-color-999">贡献</span>	    
+		    		    <a class="aw-user-name" data-id="1469" href="http://wenda.bootcss.com/people/wt2510" rel="nofollow"><img src="http://wenda.bootcss.com/static/common/avatar-mid-img.png" alt="" /></a>
+		    		    <a class="aw-user-name" data-id="367" href="http://wenda.bootcss.com/people/rex" rel="nofollow"><img src="http://wenda.bootcss.com/uploads/avatar/000/00/03/67_avatar_mid.jpg" alt="" /></a>
+		    		</div>
+				
+		<p>
+						
+									<a href="http://wenda.bootcss.com/people/wt2510" class="aw-user-name" data-id="1469">wt2510</a> 
+				<span class="text-color-999">回复了问题 • 3 人关注 • 5 个回复 • 194 次浏览 • 22 小时前				</span>
+									<span class="text-color-999 related-topic hide"> •  来自相关话题</span>
+		</p>
+		
+			</div>
+</div>
+
+
+{% endblock %}

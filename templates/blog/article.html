@@ -1,0 +1,21 @@
+{% extends "blog/base.html"%}
+
+{% block body_block %}
+	{% if article %}
+		<div class="blog-post">
+		  <h2 class="blog-post-title"> {{ article.title }} </h2> 
+		  <p class="blog-post-meta">{{ article.update_time }}</p> <br />
+ 			<pre>{{ article.body }}</pre>
+		<hr/>
+		</div><!-- /.blog-post -->
+	{% endif %}	
+
+ 	{% include "blog/pageinfo.html" %}
+
+{% endblock %}
+	
+
+{% block category_block %}
+	{% include "blog/category.html" %}	
+{% endblock %}
+	

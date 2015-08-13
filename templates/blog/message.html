@@ -1,0 +1,22 @@
+{% extends "blog/base.html" %}
+
+
+{% block body_block %}
+	{% for message in mess %}
+	<p><strong> {{ message.author }} </strong>  {{ message.update_time }}</p> 
+		<pre>{{ message.body }} </pre>
+	{% endfor %}
+
+	{% if user.is_authenticated %}
+	<h1>留言</h1>
+	<form method="post" action=".">
+	{% csrf_token %}
+	{% for hidden in form.hidden_fields %}
+		 {{ hidden }}
+	 {% endfor %}
+		 {{ form.as_p }}
+		<input type="submit" value="发表">	
+	{% else %}
+		<strong>大神，人过留名，雁过留声，登录来个评论吧。</strong>
+	{% endif %}
+{% endblock %}

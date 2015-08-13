@@ -1,0 +1,25 @@
+{% extends "blog/base.html" %}
+{% load staticfiles %}
+
+{% block body_block %}
+
+<link href="{% static "bootstrap/css/login.css" %}" rel="stylesheet">
+
+<form class="form-signin" role="form" mothod="post" action=".">
+<h2 class="form-signin-heading">sign up here</h2>
+	{% csrf_token %}	
+	{{ form.as_p }}
+
+<button class="btn btn-lg btn-primary btn-block"  type="submit" value = "Submit"class="btn btn-default">注册</button>
+
+</form>
+
+<!--
+<h1>Register here</h1>
+	<form method="post" action=".">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<input type="submit" value="submit"/>
+	</form>
+-->
+{% endblock %}

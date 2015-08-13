@@ -1,0 +1,14 @@
+{% extends "blog/base.html" %}
+
+{% block body_block %}
+	<h1>留言</h1>
+	<form method="post" action=".">
+	{% csrf_token %}
+	{% for hidden in form.hidden_fields %}
+		 {{ hidden }}
+	 {% endfor %}
+	
+		{{ form.as_p  }}
+	<input type="submit" value="发表">
+	</form>
+{% endblock %}

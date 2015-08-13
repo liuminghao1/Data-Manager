@@ -1,0 +1,71 @@
+{% load staticfiles %}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="copyright" content="111.com">
+<meta name="Author" content="Robin">
+<meta name="Robots" content="none">
+<title>百灵时代数据分析平台</title>
+<link href="{% static "data/css/main.css"%}" rel="stylesheet" type="text/css" />
+<script src="{% static "data/js/all.js"  %}" type=text/javascript></script>
+<script src="{% static "jquery-1.4.3.min.js" %}" type=text/javascript></script>
+</head>
+<body>
+<div id="ajax_show" name="ajax_show"></div>
+<div class="TOP">
+	<div class="logo">百灵数据分析平台</div>
+	<div class="S">
+		<ul>
+<li class="on"><a href="?s_t=2">ACAP监控</a></li><li class="off"><a href="?s_t=1">系统管理</a></li>		</ul>
+	</div>
+	<div class="R w_l">
+  		<ul>
+			<li class="t1">admin</li>
+            <li class="t2 disn"><a href="../" target="_blank">打开首页</a></li>
+			<li class="t5"><a href="javascript:BIN_loginout();">退出</a></li>
+		</ul>
+	</div>
+</div>
+<div class="MID">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td rowspan="2" valign="top" class="left_td">
+<div class="Left"><div id="left_0" class="open" onclick="ShowMenu(0)">AP监控</div><ul id="Menu_0" class="sub"><li class="off"><a href="?s_t=2&s_lr=20_21">数据实时状况</a></li><li class="off"><a href="?s_t=2&s_lr=20_27">AP监测管理</a></li><li class="off"><a href="?s_t=2&s_lr=20_28">AP数据导入</a></li></ul></div><div class="Left"><div id="left_1" class="open" onclick="ShowMenu(1)">运维管理</div><ul id="Menu_1" class="sub"><li class="on"><a href="?s_t=2&s_lr=40_42">AP分组管理</a></li></ul></div><div class="Left"><div id="left_2" class="open" onclick="ShowMenu(2)">按AP排重数据统计</div><ul id="Menu_2" class="sub"><li class="off"><a href="?s_t=2&s_lr=30_32">按日统计用户</a></li><li class="off"><a href="?s_t=2&s_lr=30_31">按小时统计用户</a></li><li class="off"><a href="?s_t=2&s_lr=30_33">按月统计用户</a></li></ul></div><div class="Left"><div id="left_3" class="open" onclick="ShowMenu(3)">临时数据状况</div><ul id="Menu_3" class="sub"><li class="off"><a href="?s_t=2&s_lr=50_51">AP监测管理</a></li></ul></div>	  </td>
+      <td rowspan="2" valign="top" class="right_td">
+	    <div class="right_in">
+            <div class="R_tag">
+				<ul>
+<li id="tag_title_4201" class="off"><a href="?s_t=2&s_lr=40_42&s_r=4201">场景管理</a></li><li id="tag_title_4202" class="off"><a href="?s_t=2&s_lr=40_42&s_r=4202">区域管理</a></li><li id="tag_title_4203" class="on"><a href="?s_t=2&s_lr=40_42&s_r=4203">店面管理</a></li>				</ul>
+			</div>
+			<div class="MAIN">
+            	<div class="model">
+<script>
+function show_scene_2(c1){
+	var url="ajax/Ap_list_all_ajax.php";
+	$.ajax({
+		type: "get",
+		url: url,
+		data:"act=s1&s1="+c1,
+		dataType:"text",
+		success: function(textStatus){
+			 var html = textStatus;
+	         $("#s_scene_2_show").html(html);
+		}
+	});
+}
+</script>
+<div class="PTYPE"><ul><li class="button_tip"><a href="javascript:history.back(-1);">返回上一页</a></li></ul></div><form action="?s_t=2&s_lr=40_42&s_r=4203&act=addmod&bid=2&pid=63&addmod=20" method="post" enctype="multipart/form-data" name="form_amtop" id="form_amtop" class="ma0"><table width="100%" border="0" cellpadding="3" cellspacing="1" class="BTB"><input name="moid" id="moid" type="hidden" value="92"><tr><td width="120">店面名称</td><td><input name="shop_name" id="shop_name" type="text" value="GZ天河城-3G" size=12  class="input_long" /></td></tr><tr><td width="120">所属区域</td><td><span class="search_dec_td">场景</span><div id="s_scene_show" class="fl"><select name="s_scene" id="s_scene" class="fl" onchange="show_scene_2(this.value)"><option value="1" >万达</option><option value="2" selected="selected">711-广佛</option><option value="3" >香港</option><option value="4" >码头</option><option value="5" >设备拆换区</option><option value="6" >公司部署</option><option value="8" >测试用</option><option value="9" >711-深圳</option><option value="10" >711-中山</option><option value="11" >711-珠海</option><option value="12" >711-东莞</option><option value="13" >test</option></select></div><span class="search_dec_td">区域</span><div id="s_scene_2_show" class="fl"><select name="s_scene_2" id="s_scene_2" class="fl" ><option value="63" selected="selected">天河区</option><option value="66" >越秀区</option><option value="67" >白云区</option><option value="68" >海珠区</option><option value="69" >番禺区</option><option value="70" >荔湾区</option><option value="71" >黄埔区</option><option value="72" >花都区</option><option value="73" >增城区</option><option value="74" >南海</option><option value="75" >禅城</option><option value="76" >顺德</option><option value="77" >三水</option><option value="78" >萝岗区</option></select></div><tr><td width="120">店面地址</td><td><input name="shop_address" id="shop_address" type="text" value="广州市天河路208号天河城地厅5号铺(章光)" size=12  class="input_long" /></td></tr><tr><td width="120">负责人</td><td><input name="shop_manager" id="shop_manager" type="text" value="" size=12  class="input_long" /></td></tr><tr><td width="120">联系电话</td><td><input name="mobile" id="mobile" type="text" value="85584813" size=12  class="input_long" /></td></tr><tr><td width="120">网络线路</td><td><input name="line" id="line" type="text" value="" size=12  class="input_long" /></td></tr><tr><td width="120">固定IP</td><td><input name="ip" id="ip" type="text" value="" size=12  class="input_long" /></td></tr><tr><td width="120">店号</td><td><input name="shop_no" id="shop_no" type="text" value="166" size=12  class="input_long" /></td></tr><tr><td width="120">备注</td><td><input name="note" id="note" type="text" value="" size=12  class="input_long" /></td></tr><table class="fl" width="100%"><tr><td height="50"><input name="Submit" type="submit" class="botton" value="提交"><input name="Submit" type="reset" class="botton" value="重置"></td></tr></table></table></form>                </div>
+			</div>
+		</div>
+	  </td>
+    </tr>
+  </table>
+  <div class="bot_copyright">
+    <div class="fl"></div>
+	<div class="fl"></div>
+	<div class="fr" style="color:#F00;">百灵时代数据分析平台&nbsp;&nbsp;Version: 0.31 Beta-131025 </div>
+    <div class="disn" style="color:#F00;"><strong>郑重说明：</strong>本平台数据为集团内部数据分析用，禁止未经相关领导明文批准的任何数据外泄！</div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+
+{% if articles|length < 1 %} 
+	<h3>暂无文章</h3>
+{% else  %}
+<nav>
+		
+       <ul class="pager">
+		{% if articles.has_previous %}
+		<li><a href="?page={{ articles.previous_page_number }}">上一页</a></li>
+		{% endif %}
+		{% for page in articles.paginator.page_range %}
+			{% if page = articles.number %}
+			<li><a style="background:rgba(0,128,255,.5);">{{ page }}</a></li>
+			{% else %}
+				<li><a href="?page={{ page }}">{{ page }}</a></li>
+			{% endif %}
+		{% endfor %}
+		{% if articles.has_next %}
+			<li><a href="?page={{ articles.next_page_number}}">下一页</a></li>
+		{% endif %}
+
+
+       </ul>
+</nav>
+{% endif %}

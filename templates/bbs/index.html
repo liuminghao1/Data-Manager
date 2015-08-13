@@ -1,0 +1,30 @@
+
+{% extends 'bbs/base.html' %}
+{% load staticfiles %}
+
+{% block body_block %}
+		<div class="aw-mod aw-explore-list">
+			<div class="mod-body">
+				<div class="aw-common-list">
+				<!--tab -->
+	{% for card in cards  %}
+<div class="aw-item active" data-topic-id="350,5,">
+<a class="aw-user-name hidden-xs" data-id="1473" href="#用户地址" rel="nofollow"><img src="{% static "images/bbs_head.png" %}" alt="" /></a>	
+ <div class="aw-question-content">
+<h4><a href="#用户地址">{{ card.title }}</a></h4>
+<a href="#回复" class="pull-right text-color-999">回复</a>
+<p><a href="#" class="aw-user-name">{{ card.tba_user.user }}</a> 
+<span class="text-color-999">发起了问题 • 1 人关注 • 0 个回复 • 19 次浏览 • 14 小时前 </span>
+<span class="text-color-999 related-topic hide"> •  来自相关话题</span>
+</p>
+</div>
+</div>
+	{% endfor %}
+		<!-- tab-->
+		</div>
+		</div>
+	
+
+
+{% endblock%}
+

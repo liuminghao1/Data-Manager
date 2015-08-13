@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+<meta name="renderer" content="webkit" />
+<title>Bootstrap中文网</title>
+<meta name="keywords" content="bootstrap,html,css,javascript,前端" />
+<meta name="description" content="Bootstrap是Twitter推出的一个用于前端开发的开源工具包。它由Twitter的设计师Mark Otto和Jacob Thornton合作开发，是一个CSS/HTML框架。目前，Bootstrap最新版本为3.0 。Bootstrap中文网致力于为广大国内开发者提供详尽的中文文档、代码实例等，助力开发者掌握并使用这一框架。"  />
+<!--<base href="http://wenda.bootcss.com/" -->
+<br />   
+<link href="http://wenda.bootcss.com/static/css/default/ico/favicon.ico?v=20140912" rel="shortcut icon" type="image/x-icon" />
+
+<!--
+<link rel="stylesheet" type="text/css" href="{% static "bbs/css/bootstrap.css" %}" />
+<link rel="stylesheet" type="text/css" href="/static/bbs/css/bootstrap.css" />
+-->
+<link rel="stylesheet" type="text/css" href="http://wenda.bootcss.com/static/css/bootstrap.css" />
+<!--
+<link rel="stylesheet" type="text/css" href="http://wenda.bootcss.com/static/css/icon.css" />
+-->
+<link href="http://wenda.bootcss.com/static/css/default/common.css?v=20140912" rel="stylesheet" type="text/css" />
+<link href="http://wenda.bootcss.com/static/css/default/link.css?v=20140912" rel="stylesheet" type="text/css" />
+<link href="http://wenda.bootcss.com/static/js/plug_module/style.css?v=20140912" rel="stylesheet" type="text/css" />
+
+
+<script type="text/javascript">
+	var _CEF51C71AA65AC1DC52ECA8B826F1D63='';
+	var G_POST_HASH=_CEF51C71AA65AC1DC52ECA8B826F1D63;
+	var G_INDEX_SCRIPT = '';
+	var G_SITE_NAME = 'Bootstrap中文网';
+	var G_BASE_URL = 'http://wenda.bootcss.com';
+	var G_STATIC_URL = 'http://wenda.bootcss.com/static';
+	var G_UPLOAD_URL = 'http://wenda.bootcss.com/uploads';
+	var G_USER_ID = '';
+	var G_USER_NAME = '';
+	var G_UPLOAD_ENABLE = 'N';
+	var G_UNREAD_NOTIFICATION = 0;
+	var G_NOTIFICATION_INTERVAL = 100000;
+	var G_CAN_CREATE_TOPIC = '';
+	
+	</script>
+<script src="http://wenda.bootcss.com/static/js/jquery.2.js?v=20140912" type="text/javascript"></script>
+<script src="http://wenda.bootcss.com/static/js/jquery.form.js?v=20140912" type="text/javascript"></script>
+<script src="http://wenda.bootcss.com/static/js/plug_module/plug-in_module.js?v=20140912" type="text/javascript"></script>
+<script src="http://wenda.bootcss.com/static/js/aws.js?v=20140912" type="text/javascript"></script>
+<script src="http://wenda.bootcss.com/static/js/aw_template.js?v=20140912" type="text/javascript"></script>
+<script src="http://wenda.bootcss.com/static/js/app.js?v=20140912" type="text/javascript"></script>
+<script type="text/javascript" src="http://wenda.bootcss.com/static/js/compatibility.js"></script>
+<!--[if lte IE 8]>
+	<script type="text/javascript" src="http://wenda.bootcss.com/static/js/respond.js"></script>
+<![endif]-->
+</head>
+<noscript unselectable="on" id="noscript">
+    <div class="aw-404 aw-404-wrap container">
+        <img src="http://wenda.bootcss.com/static/common/no-js.jpg">
+        <p>你的浏览器禁用了JavaScript, 请开启后刷新浏览器获得更好的体验!</p>
+    </div>
+</noscript>
+<body>
+	<div class="aw-top-menu-wrap">
+		<div class="container">
+			<!-- logo -->
+			<div class="aw-logo hidden-xs">
+				<a href="{% url 'bbs_index'  %}"></a>
+			</div>
+			<!-- end logo -->
+			<!-- 搜索框 -->
+			<div class="aw-search-box  hidden-xs hidden-sm">
+				<form class="navbar-search" action="http://wenda.bootcss.com/search/" id="global_search_form" method="post">
+					<input class="form-control search-query" type="text" placeholder="搜索问题、话题或人" autocomplete="off" name="q" id="aw-search-query" />
+					<span title="搜索" id="global_search_btns" onClick="$('#global_search_form').submit();"><i class="icon icon-search"></i></span>
+					<div class="aw-dropdown">
+						<div class="mod-body">
+							<p class="title">输入关键字进行搜索</p>
+							<ul class="aw-dropdown-list hide"></ul>
+							<p class="search"><span>搜索:</span><a onClick="$('#global_search_form').submit();"></a></p>
+						</div>
+						<div class="mod-footer">
+							<a href="" onClick="$('#header_publish').click();" class="pull-right btn btn-mini btn-success publish">发起问题</a>
+						</div>
+					</div>
+				</form>
+			</div>
+			<!-- end 搜索框 -->
+			<!-- 导航 -->
+			<div class="aw-top-nav navbar">
+				<div class="navbar-header">
+			      <button  class="navbar-toggle pull-left">
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			      </button>
+			    </div>
+				<nav role="navigation" class="collapse navbar-collapse bs-navbar-collapse">
+			      <ul class="nav navbar-nav">
+			      	                    <li><a href="" class="active"><i class="icon icon-ul"></i> 发现</a></li>
+
+					<!-- <li><a href="http://wenda.bootcss.com/question/" class="">问题</a></li>
+
+					<li><a href="http://wenda.bootcss.com/article/" class="">文章</a></li> -->
+
+					<li><a href="http://wenda.bootcss.com/topic/" ><i class="icon icon-topic"></i> 话题</a></li>
+
+								      </ul>
+			    </nav>
+			</div>
+			<!-- end 导航 -->
+			<!-- 用户栏 -->
+			<div class="aw-user-nav">
+				<!-- 登陆&注册栏 -->
+		{% if user.is_authenticated %}
+		<a href="home" class="aw-user-nav-dropdown"> <img alt="user.username" src="#touxiang" /><span class="badge badge-important">1</span></a>
+
+	<div class="aw-dropdown dropdown-list pull-right">
+	<ul class="aw-dropdown-list">
+	  <li><a href="#"><i class="icon icon-inbox"></i> 私信<span class="badge badge-important hide" id="inbox_unread">0</span></a></li>
+	  <li class="hidden-xs"><a href="#"><i class="icon icon-setting"></i> 设置</a></li>
+	  <li><a href="{% url 'auth_logout' %}"><i class="icon icon-logout"></i> 退出</a></li>
+	</ul>
+	</div>
+			</div>
+	<div class="aw-publish-btn">
+	<a id="header_publish"href="http://wenda.bootcss.com/publish/" class="btn-primary"><i class="icon icon-ask"></i>发起</a>
+	    <div class="dropdown-list pull-right">
+		<ul>
+			<li><a href="/bbs/publish/">主题</a></li>
+			<li><a href="#">文章</a></li>
+		</ul>
+	    </div>
+	</div>		
+	{% else %}
+	<span>
+		<a class="register btn btn-normal btn-success" href="{% url 'registration_register' %}">注册!</a>
+		<a class="login btn btn-normal btn-primary" href="{% url 'auth_login'  %}">登录!</a>
+	</span>
+	{% endif %}
+							<!-- end 登陆&注册栏 -->
+		</div>
+		<!-- end 用户栏 -->
+		<!-- 发起 -->
+					<!-- end 发起 -->
+	</div>
+</div>
+		
+<div class="aw-container-wrap">
+
+<div class="container">
+	<div class="row">
+		<div class="aw-content-wrap clearfix">
+			<div class="col-sm-12 col-md-9 aw-main-content">
+				<!-- 新消息通知 -->
+				<div class="aw-mod aw-notification-box hide" id="index_notification">
+					<div class="mod-head common-head">
+						<h2>
+							<span class="pull-right"><a href="http://wenda.bootcss.com/setting/privacy/#notifications" class="text-color-999"><i class="icon icon-setting"></i> 通知设置</a></span>
+							<i class="icon icon-bell"></i>新通知<em class="badge badge-important" name="notification_unread_num"></em>
+						</h2>
+					</div>
+					<div class="mod-body">
+						<ul id="notification_list"></ul>
+						</div>
+						<div class="mod-footer clearfix">
+							<a href="javascript:;" onclick="AWS.Message.read_notification(false, 0, false);" class="pull-left btn btn-mini btn-gray">我知道了</a>
+							<a href="http://wenda.bootcss.com/notifications/" class="pull-right btn btn-mini btn-success">查看所有</a>
+						</div>
+					</div>
+					<!-- end 新消息通知 -->
+					<!-- tab切换 -->
+					<ul class="nav nav-tabs aw-nav-tabs active hidden-xs">
+						<li><a href="http://wenda.bootcss.com/sort_type-unresponsive">等待回复</a></li>
+						<li><a href="http://wenda.bootcss.com/sort_type-hot__day-7" id="sort_control_hot">热门</a></li>
+						<li><a href="http://wenda.bootcss.com/is_recommend-1">推荐</a></li>
+						<li class="active"><a href="">最新</a></li>
+
+						<h2 class="hidden-xs"><i class="icon icon-list"></i> 发现</h2>
+					</ul>
+					<!-- end tab切换 -->
+
+					
+{% block body_block %}
+					<div class="aw-mod aw-explore-list">
+						<div class="mod-body">
+							<div class="aw-common-list">
+
+					     </div>
+				    </div>
+
+{% endblock %}
+						<div class="mod-footer">
+							<div class="page-control"><ul class="pagination pull-right"><li class="active"><a href="javascript:;">1</a></li><li><a href="http://wenda.bootcss.com/sort_type-new__day-0__is_recommend-0__page-2">2</a></li><li><a href="http://wenda.bootcss.com/sort_type-new__day-0__is_recommend-0__page-3">3</a></li><li><a href="http://wenda.bootcss.com/sort_type-new__day-0__is_recommend-0__page-4">4</a></li><li><a href="http://wenda.bootcss.com/sort_type-new__day-0__is_recommend-0__page-2">&gt;</a></li><li><a href="http://wenda.bootcss.com/sort_type-new__day-0__is_recommend-0__page-20">&gt;&gt;</a></li></ul></div>						</div>
+					</div>
+				</div>
+
+				<!-- 侧边栏 -->
+				<div class="col-sm-12 col-md-3 aw-side-bar hidden-xs hidden-sm">
+					<div class="aw-mod">
+	<div class="mod-head">
+		<h3>专题</h3>
+	</div>
+	<div class="mod-body">
+		<ul>
+							<li><a href="http://wenda.bootcss.com/feature/liepin">猎聘</a></li>
+					</ul>
+	</div>
+</div>
+					<div class="aw-mod aw-text-align-justify">
+	<div class="mod-head">
+		<a href="http://wenda.bootcss.com/topic/channel-hot" class="pull-right">更多 &gt;</a>
+		<h3>热门话题</h3>
+	</div>
+	<div class="mod-body">
+							<dl>
+				<dt class="pull-left aw-border-radius-5">
+					<a href="http://wenda.bootcss.com/topic/图标"><img alt="" src="http://wenda.bootcss.com/static/common/topic-mid-img.png" /></a>
+				</dt>
+				<dd class="pull-left">
+					<p class="clearfix">
+						<span class="topic-tag" data-id="149">
+							<a href="http://wenda.bootcss.com/topic/图标" class="text">图标</a>
+						</span>
+					</p>
+					<p><b>4</b> 个问题, <b>1</b> 人关注</p>
+				</dd>
+			</dl>
+					<dl>
+				<dt class="pull-left aw-border-radius-5">
+					<a href="http://wenda.bootcss.com/topic/css"><img alt="" src="http://wenda.bootcss.com/static/common/topic-mid-img.png" /></a>
+				</dt>
+				<dd class="pull-left">
+					<p class="clearfix">
+						<span class="topic-tag" data-id="172">
+							<a href="http://wenda.bootcss.com/topic/css" class="text">css</a>
+						</span>
+					</p>
+					<p><b>7</b> 个问题, <b>3</b> 人关注</p>
+				</dd>
+			</dl>
+					<dl>
+				<dt class="pull-left aw-border-radius-5">
+					<a href="http://wenda.bootcss.com/topic/Bootstrap问答社区"><img alt="" src="http://wenda.bootcss.com/static/common/topic-mid-img.png" /></a>
+				</dt>
+				<dd class="pull-left">
+					<p class="clearfix">
+						<span class="topic-tag" data-id="3">
+							<a href="http://wenda.bootcss.com/topic/Bootstrap问答社区" class="text">Bootstrap问答社区</a>
+						</span>
+					</p>
+					<p><b>6</b> 个问题, <b>14</b> 人关注</p>
+				</dd>
+			</dl>
+					<dl>
+				<dt class="pull-left aw-border-radius-5">
+					<a href="http://wenda.bootcss.com/topic/bootstrap"><img alt="" src="http://wenda.bootcss.com/static/common/topic-mid-img.png" /></a>
+				</dt>
+				<dd class="pull-left">
+					<p class="clearfix">
+						<span class="topic-tag" data-id="5">
+							<a href="http://wenda.bootcss.com/topic/bootstrap" class="text">bootstrap</a>
+						</span>
+					</p>
+					<p><b>37</b> 个问题, <b>19</b> 人关注</p>
+				</dd>
+			</dl>
+					<dl>
+				<dt class="pull-left aw-border-radius-5">
+					<a href="http://wenda.bootcss.com/topic/弹出框"><img alt="" src="http://wenda.bootcss.com/static/common/topic-mid-img.png" /></a>
+				</dt>
+				<dd class="pull-left">
+					<p class="clearfix">
+						<span class="topic-tag" data-id="74">
+							<a href="http://wenda.bootcss.com/topic/弹出框" class="text">弹出框</a>
+						</span>
+					</p>
+					<p><b>2</b> 个问题, <b>1</b> 人关注</p>
+				</dd>
+			</dl>
+					</div>
+</div>
+					<div class="aw-mod aw-text-align-justify">
+	<div class="mod-head">
+		<a href="http://wenda.bootcss.com/people/" class="pull-right">更多 &gt;</a>
+		<h3>热门用户</h3>
+	</div>
+	<div class="mod-body">
+					
+		<dl>
+			<dt class="pull-left aw-border-radius-5">
+				<a href="http://wenda.bootcss.com/people/%E9%9B%AA%E9%A6%A8"><img alt="" src="http://wenda.bootcss.com/static/common/avatar-mid-img.png" /></a>
+			</dt>
+			<dd class="pull-left">
+				<a href="http://wenda.bootcss.com/people/%E9%9B%AA%E9%A6%A8" data-id="1429" class="aw-user-name">雪馨						</a>
+				<p class="signature"></p>
+				<p><b>0</b> 个问题, <b>0</b> 次赞同</p>
+			</dd>
+		</dl>
+			
+		<dl>
+			<dt class="pull-left aw-border-radius-5">
+				<a href="http://wenda.bootcss.com/people/_%E7%8E%AF%E4%BD%A9%E4%BC%8A%E4%BA%BA"><img alt="" src="http://wenda.bootcss.com/uploads/avatar/000/00/14/33_avatar_mid.jpg" /></a>
+			</dt>
+			<dd class="pull-left">
+				<a href="http://wenda.bootcss.com/people/_%E7%8E%AF%E4%BD%A9%E4%BC%8A%E4%BA%BA" data-id="1433" class="aw-user-name">_环佩伊人						</a>
+				<p class="signature"></p>
+				<p><b>0</b> 个问题, <b>0</b> 次赞同</p>
+			</dd>
+		</dl>
+			
+		<dl>
+			<dt class="pull-left aw-border-radius-5">
+				<a href="http://wenda.bootcss.com/people/Reese"><img alt="" src="http://wenda.bootcss.com/static/common/avatar-mid-img.png" /></a>
+			</dt>
+			<dd class="pull-left">
+				<a href="http://wenda.bootcss.com/people/Reese" data-id="1432" class="aw-user-name">Reese						</a>
+				<p class="signature"></p>
+				<p><b>0</b> 个问题, <b>0</b> 次赞同</p>
+			</dd>
+		</dl>
+			
+		<dl>
+			<dt class="pull-left aw-border-radius-5">
+				<a href="http://wenda.bootcss.com/people/%E6%B8%85%E6%9C%9D%E4%BA%BA"><img alt="" src="http://wenda.bootcss.com/static/common/avatar-mid-img.png" /></a>
+			</dt>
+			<dd class="pull-left">
+				<a href="http://wenda.bootcss.com/people/%E6%B8%85%E6%9C%9D%E4%BA%BA" data-id="1405" class="aw-user-name">清朝人						</a>
+				<p class="signature"></p>
+				<p><b>0</b> 个问题, <b>0</b> 次赞同</p>
+			</dd>
+		</dl>
+			
+		<dl>
+			<dt class="pull-left aw-border-radius-5">
+				<a href="http://wenda.bootcss.com/people/justin"><img alt="" src="http://wenda.bootcss.com/uploads/avatar/000/00/14/38_avatar_mid.jpg" /></a>
+			</dt>
+			<dd class="pull-left">
+				<a href="http://wenda.bootcss.com/people/justin" data-id="1438" class="aw-user-name">justin						</a>
+				<p class="signature"></p>
+				<p><b>1</b> 个问题, <b>0</b> 次赞同</p>
+			</dd>
+		</dl>
+					</div>
+</div>				</div>
+				<!-- end 侧边栏 -->
+			</div>
+		</div>
+	</div>
+</div>
+
+<footer class="footer ">
+  <div class="container">
+    <div class="row footer-top">
+      <div class="col-sm-6 col-lg-6">   
+    </div>
+	<strong> 测试 </strong>
+    <div class="row footer-bottom">
+      <ul class="list-inline text-center">
+        <li><a href="#" >回到顶部</a></li><li></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+
+<a class="aw-back-top hidden-xs" href="javascript:;" onclick="$.scrollTo(1, 600, {queue:true});"><i class="icon icon-up"></i></a>
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fd799cb54bdae1c6134cf03ab0a98d443' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<!-- DO NOT REMOVE -->
+<div id="aw-ajax-box" class="aw-ajax-box"></div>
+<div style="display:none;" id="__crond">
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('#__crond').html(unescape('%3Cimg%20src%3D%22' + G_BASE_URL + '/crond/run/1438743680%22%20width%3D%221%22%20height%3D%221%22%20/%3E'));
+		});
+	</script>
+</div>
+
+<!-- Escape time: 0.079519033432007 --><!-- / DO NOT REMOVE -->
+
+</body>
+</html>
