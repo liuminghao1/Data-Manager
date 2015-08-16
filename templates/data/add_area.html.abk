@@ -1,0 +1,28 @@
+{% extends "data/add.html" %}
+
+
+{% block top_block %}
+
+	<div class="PTYPE"><ul><li><a href="/data/add/area">添加场景</a></li></ul></div>
+
+{% endblock %}
+
+
+
+{% block body %}
+		<form id="category_form" method="post" action="/data/add/area">
+
+            {% csrf_token %}
+		<table width="100%" border="0" cellpadding="3" cellspacing="1" class="BTB">
+		<tr>
+			<td width="120">输入场景名称</td>
+            {% for field in form.visible_fields %}
+                {{ field.errors }}
+                {{ field.help_text }}
+                {{ field }}
+            {% endfor %}
+		</tr>
+
+            <input type="submit" name="submit" value="添加场景" />
+
+{% endblock %}

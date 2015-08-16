@@ -1,0 +1,34 @@
+{% extends "data/base.html" %}
+
+{% block tag_body %}
+	<ul>
+	<li id="tag_title_2101" class="off"><a href="/data/status/scenc">场景管理</a></li>
+	<li id="tag_title_2101" class="off"><a href="/data/status/area">区域管理</a></li>
+	<li id="tag_title_2101" class="off"><a href="/data/status/shop">店面管理</a></li>
+	</ul>	
+
+{% endblock %}
+
+{% block top_block %}
+	<div class="PTYPE"><ul><li><a href="/data/add/scenc">添加场景</a></li></ul></div>
+
+{% endblock %}
+
+{% block body %}
+	<table id="grid_list" width="100%" border="0" align="center" cellpadding="0" cellspacing="1" class="BTB">
+	
+	<tr><td width="40" class="tt tC">ID</td>
+	<td width="150" class="tt tL">场景名称</td>
+	<td class="tt tL">操作</td></tr>
+	{% if scencs  %}	
+		{% for scenc in  scencs  %}
+	<tr onmouseover="this.className='tr_over'" onmouseout="this.className=''">
+	<td class="tC">{{ scenc.id }}</td>
+	<td class="tL"><a href="?s_t=2&s_lr=40_42&s_r=4201&act=addmod&addmod=2&id=1">{{ scenc.scenc_name }}</a></td>
+	<td class="tL bt_td"><div class="td_button"><a href="?s_t=2&s_lr=40_42&s_r=4201&act=addmod&addmod=2&id=1">修改</a></div>
+	<div class="td_button"><a href="javascript:Confirm_del('?s_t=2&s_lr=40_42&s_r=4201&act=delete&id=1')">删除</a></div></td></tr>
+		{% endfor %}
+	{% endif %}
+
+	</table>
+{% endblock %}

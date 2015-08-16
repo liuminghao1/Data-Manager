@@ -10,27 +10,23 @@
 
 {% block body %}
 		{% if change_name  %}
-	    <form id="category_form" method="post" action="{% url 'data_add_data'  change_name  %}">
+		<form id="category_form" method="post" action="{% url 'data_add_data'  change_name  %}">
 		{% endif %}
-		{% if add_name  %}
+		 {% if add_name  %}
 	    <form id="category_form" method="post" action="{% url 'data_add_data' add_name  %}">
 		{% endif %}
             {% csrf_token %}
-		<table width="100%" border="0" cellpadding="3" cellspacing="1" class="BTB">
-           	{% if id %}  
-<!--		<input id="id_id" name="id" type="hidden" value="{{ id }}"/>
--->
-		{% endif %}
-               {% for hidden in form.hidden_fields %}
-                {{ hidden }}
-               {% endfor %}
-		
-
-	     {% for field in form.visible_fields %}
+	    
+	   {% for hidden in form.hidden_fields %}
+                    {{ hidden }}
+	    {% endfor %}
+	
+    	<table width="100%" border="0" cellpadding="3" cellspacing="1" class="BTB">
+            {% for field in form.visible_fields %}
                 <tr>
+		{{ field.errors }}
 		<td width="120"> {{ field.help_text }}</td>
                <td> {{ field }}<td>
-		{{ field.errors }}
 		</tr>
             {% endfor %}
 		</table>
