@@ -2,31 +2,44 @@
 
 {% block tag_body %}
 	<ul>
-	<li id="tag_title_2101" class="on"><a href="?s_t=2&s_lr=20_21&s_r=2101">全部AP</a></li>
-	<li id="tag_title_2101" class="on"><a href="?s_t=2&s_lr=20_21&s_r=2101">全部AP</a></li>
-	<li id="tag_title_2101" class="on"><a href="?s_t=2&s_lr=20_21&s_r=2101">全部AP</a></li>
-	<li id="tag_title_2101" class="on"><a href="?s_t=2&s_lr=20_21&s_r=2101">全部AP</a></li>
-	<li id="tag_title_2101" class="on"><a href="?s_t=2&s_lr=20_21&s_r=2101">全部AP</a></li>
+		<li id="tag_title_2101" class="off"><a href="{% url 'data_check' %}">全部设备</a></li>
+		{% for scenc in scencs %}
+	<li id="tag_title_2101" class="off"><a href="{% url 'data_check' %}{{scenc.scenc_name}}">{{ scenc.scenc_name }}</a></li>
+		{% endfor %}
 	</ul>
 {% endblock %}
 
 {% block top_block %}
-
+		<div class="fl" style="margin-bottom:5px;">
+		<input type="button" name="button" id="button" value="刷新本页" class="search_rf" style="margin-left:0;" onclick="top.location=''" />
+		</div>
+		{% if show  %}
+			<strong>  当前显示: {{show.scenc_name}} 设备</strong>
+		{% else %}
+			<strong>  当前显示: 全部 设备</strong>
+		{% endif %}
 {% endblock %}
 
 {% block body %}
 	<table id="grid_list" width="100%" border="0" align="center" cellpadding="0" cellspacing="1" class="BTB">
 	<tr><td width="40" class="tt tC">序号</td>
-	<td width="120" class="tt tL">MAC/名称</td>
-	<td width="30" class="tt tC">在线</td>
-	<td width="110" class="tt tC">运行/上线</td>
+	<td width="120" class="tt tL">设备名称</td>
+	<td width="30" class="tt tC">是否在线</td>
+	<td width="110" class="tt tC">运行/时间</td>
 	<td width="100" class="tt tC">最后心跳/数据</td>
-	<td width="90" class="tt tC">AP/AC-IP</td><td width="60" class="tt tC">终端数</td>
-	<td width="30" class="tt tC">WTP</td><td width="140" class="tt tL">店号-店名</td>
+	<td width="90" class="tt tC">上线IP</td><td width="60" class="tt tC">连接数</td>
+	<td width="140" class="tt tL">店号-店名</td>
 	<td class="tt tL">操作</td></tr>	
-
-	<tr onmouseover="this.className='tr_over'" onmouseout="this.className=''"><td class="tC">1</td><td class="tL">001F64E8D026<br>autoap</td><td class="tC"><div class="bool_on"></div></td><td class="tC">46天 23时13分28秒<br>46天 17时18分37秒</td><td class="tC">H_08-12 17:20:32<br>D_08-12 17:20:32</td><td class="tC">218.103.121.98<br>203.90.250.151</td><td class="tC">连接：0<br>认证：0</td><td class="tC">72</td><td class="tL">：Tonic 補品酒吧</td><td class="tL bt_td"><div class="td_button"><a href="?s_t=2&s_lr=20_27&s_r=2701&act=addmod&addmod=2&id=106">修改</a></div></td></tr>
-
-	<tr onmouseover="this.className='tr_over'" onmouseout="this.className=''"><td class="tC">1</td><td class="tL">001F64E8D026<br>autoap</td><td class="tC"><div class="bool_on"></div></td><td class="tC">46天 23时13分28秒<br>46天 17时18分37秒</td><td class="tC">H_08-12 17:20:32<br>D_08-12 17:20:32</td><td class="tC">218.103.121.98<br>203.90.250.151</td><td class="tC">连接：0<br>认证：0</td><td class="tC">72</td><td class="tL">：Tonic 補品酒吧</td><td class="tL bt_td"><div class="td_button"><a href="?s_t=2&s_lr=20_27&s_r=2701&act=addmod&addmod=2&id=106">修改</a></div></td></tr>
-
+	{% for shop in shops %}
+	<tr onmouseover="this.className='tr_over'" onmouseout="this.className=''"><td class="tC">1</td>
+	<td class="tL">没有数据</td>
+	<td class="tC">否</td>
+	<td class="tC">没有数据</td>
+	<td class="tC">没有数据</td>
+	<td class="tC">没有数据</td>
+	<td class="tC">连接：0<br>认证：0</td>
+	<td class="tL">{{ shop.shop_name }}</td>
+	<td class="tL bt_td"><div class="td_button"><a href="{% url 'data_index' %}shop/{{shop.id}}">修改</a></div></td></tr>
+	{% endfor %}
+	
 {% endblock %}

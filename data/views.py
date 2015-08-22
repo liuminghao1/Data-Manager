@@ -4,10 +4,11 @@ from django.shortcuts import render
 from data.models import Scenc,Area,Shop
 
 from data.forms import ScencForm,AreaForm,ShopForm
-# Create your views here.
+
+import time
 
 def index(request):
-	return render(request,"data/index.html",{})
+	return render(request,"data/intime.html",{})
 def status_data(request,status_name):
 	forms ={}
 	forms['status_name'] = status_name
@@ -23,11 +24,34 @@ def status_data(request,status_name):
 		forms['shops'] = Shop.objects.all()
 		return render(request,"data/status_shop.html",forms)
 	
-def intime(request):
-	return render(request,"data/intime.html",{})
+def intime(request,intime_id = None):
+	forms = {}
+	forms['nowtime'] = time.strftime("%Y-%m-%d %H:%M:%S")
+	forms['scencs'] = Scenc.objects.all()
+	if intime_id :
+		scenc = Scenc.objects.get(id = intime_id)
+		number = 0
+		for i in scenc.area_set.all():
+			number += len(i.shop_set.all())
+		forms['numbers'] = number
+		forms['show'] = scenc  #check show
+	else:
+		forms['numbers'] = len(Shop.objects.all())
+	return render(request,"data/intime.html",forms)
 
-def check(request):
-	return render(request,"data/check.html",{})
+def check(request,check_name=None):
+	forms = {}
+	forms['scencs'] = Scenc.objects.all()[:5]
+	if check_name :
+		scenc = Scenc.objects.get(scenc_name=check_name)
+		shops = []
+		for i in scenc.area_set.all():
+			shops += (i.shop_set.all())
+		forms['shops'] = shops
+		forms['show'] = scenc
+	else:
+		forms['shops'] = Shop.objects.all()
+	return render(request,"data/check.html",forms)
 
 def change(request,change_name,class_id):
 	forms ={}

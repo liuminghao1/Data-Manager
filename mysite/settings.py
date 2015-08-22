@@ -42,7 +42,7 @@ INSTALLED_APPS = (
 	'test1',
 	'book',
 	'bbs',
-	'rebbs',
+#	'rebbs',
 	'data',
 )
 

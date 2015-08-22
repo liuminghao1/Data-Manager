@@ -2,24 +2,29 @@
 
 {% block tag_body %}
 	<ul>
-	<li id="tag_title_2101" class="on"><a href="?s_t=2&s_lr=20_21&s_r=2101">全部AP</a></li>
-	<li id="tag_title_2101" class="on"><a href="?s_t=2&s_lr=20_21&s_r=2101">全部AP</a></li>
-	<li id="tag_title_2101" class="on"><a href="?s_t=2&s_lr=20_21&s_r=2101">全部AP</a></li>
+		<li id="tag_title_2101" class="off"><a href="{% url 'data_intime' %}">全部设备</a></li>
+		{% for scenc in scencs %}
+	<li id="tag_title_2101" class="off"><a href="{% url 'data_intime_id' scenc.id  %}">{{ scenc.scenc_name }}</a></li>
+		{% endfor %}
 	</ul>
-
 {% endblock %}
 
 {% block top_block %}
 		<div class="fl" style="margin-bottom:5px;">
-		<input type="button" name="button" id="button" value="刷新本页" class="search_rf" style="margin-left:0;" onclick="top.location='?s_t=2&s_lr=20_21&s_r=2101&act=list'" />
+		<input type="button" name="button" id="button" value="刷新本页" class="search_rf" style="margin-left:0;" onclick="top.location=''" />
 		</div>
+		{% if show  %}
+		<strong>  当前显示: {{show.scenc_name}} 设备</strong>
+		{% else %}
+		<strong>  当前显示: 全部 设备</strong>
+		{% endif  %}
 {% endblock %}
 
 
 {% block body %}
 	<table id="grid_list" width="100%" border="0" align="center" cellpadding="0" cellspacing="1" class="BTB">
 	<tr>
-    <td colspan="4" class="tt">当前时间：2015-08-12 17:08:33</td>
+    <td colspan="4" class="tt">当前时间：{{ nowtime }} 显示   设备</td>
         </tr>
    <tr>
     <td width="200" class="tt">统计说明</td>
@@ -30,17 +35,48 @@
 
 	 <tr onmouseover="this.className='tr_over'" onmouseout="this.className=''">
     <td>最后数据时间</td>
-    <td class="tc" style="font-size:14px;">2015-08-12 17:07:59</td>
+    <td class="tc" style="font-size:14px;">2015-08-17 15:47:09</td>
     <td class="tc">-</td>
     <td class="tc">&nbsp;</td>
   </tr>
 
 	<tr onmouseover="this.className='tr_over'" onmouseout="this.className=''">
-    <td>最后数据时间</td>
-    <td class="tc" style="font-size:14px;">2015-08-12 17:07:59</td>
+    <td>设备总数</td>
+    <td class="tc" style="font-size:14px;">{{ numbers }}</td>
     <td class="tc">-</td>
     <td class="tc">&nbsp;</td>
   </tr>
+	<tr onmouseover="this.className='tr_over'" onmouseout="this.className=''">
+    <td>在线总数</td>
+    <td class="tc" style="font-size:14px;">0</td>
+    <td class="tc">-</td>
+    <td class="tc">&nbsp;</td>
+  </tr>
+
+	<tr onmouseover="this.className='tr_over'" onmouseout="this.className=''">
+    <td>不在线总数</td>
+    <td class="tc" style="font-size:14px;">0</td>
+    <td class="tc">-</td>
+    <td class="tc">&nbsp;</td>
+  </tr>
+
+
+	<tr onmouseover="this.className='tr_over'" onmouseout="this.className=''">
+    <td>链接设备用户数</td>
+    <td class="tc" style="font-size:14px;">0</td>
+    <td class="tc">-</td>
+    <td class="tc">&nbsp;</td>
+  </tr>
+
+
+	<tr onmouseover="this.className='tr_over'" onmouseout="this.className=''">
+    <td>链接设备的认证用户数</td>
+    <td class="tc" style="font-size:14px;">0</td>
+    <td class="tc">-</td>
+    <td class="tc">&nbsp;</td>
+  </tr>
+
+
 
 
 
