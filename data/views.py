@@ -102,6 +102,12 @@ def add_data(request,add_name):
 	elif add_name == 'area':
 		if request.method == 'POST':
 			form = AreaForm(request.POST)
+			print form.is_valid()
+			
+			print form.cleaned_data['linkman']
+			print form.cleaned_data['phone']
+			print form.cleaned_data['area_name']
+			
 			if form.is_valid():
 				try:  
 					area = Area.objects.get(id = form.cleaned_data['id'])

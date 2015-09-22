@@ -21,12 +21,14 @@
                     {{ hidden }}
 	    {% endfor %}
 	
+
     	<table width="100%" border="0" cellpadding="3" cellspacing="1" class="BTB">
+
             {% for field in form.visible_fields %}
                 <tr>
-		{{ field.errors }}
-		<td width="120"> {{ field.help_text }}</td>
+		<td width="120"> test{{ field.help_text }}</td>
                <td> {{ field }}<td>
+		<td>{{ field.errors }}</td>
 		</tr>
             {% endfor %}
 		</table>

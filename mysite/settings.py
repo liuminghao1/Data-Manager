@@ -22,11 +22,12 @@ TEMPLATE_DIRS = [TEMPLATE_PATH,]
 SECRET_KEY = '=uf$*u^dlo7487mbrd&l+w#1f)2a8kcz^28hidg22ie1dr45fi'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+#DEBUG = False
 DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*',]
 
 
 
@@ -44,6 +45,11 @@ INSTALLED_APPS = (
 	'bbs',
 #	'rebbs',
 	'data',
+	'polls',
+	'shop',
+	'quickstart',
+	'rest_framework',
+	'snippets',
 )
 
 REGISTRATION_OPEN = True                # If True, users can register
@@ -106,6 +112,7 @@ STATICFILES_DIRS = (
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+'''
 SESSION_ENGINE = 'redis_sessions.session'
 SESSION_REDIS_HOST = 'localhost'
 SESSION_REDIS_PORT = 6379
@@ -131,4 +138,28 @@ CACHES = {
     },
 }
 
+'''
+#django 1.8.2 tutorial02 
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+
+REST_FRAMEWORK = {
+	'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',),
+	'PAGINATE_BY': 10
+
+
+}
 

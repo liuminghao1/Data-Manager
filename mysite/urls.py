@@ -15,5 +15,9 @@ urlpatterns = patterns('',
     url(r'^bbs/',include('bbs.urls')),
     url(r'^rebbs/',include('rebbs.urls')),
     url(r'^data/',include('data.urls')),
+    url(r'^polls/',include('polls.urls',namespace="polls")),
+    url(r'^shop/',include('shop.urls')),
+    url(r'^quickstart/',include('quickstart.urls')),
+    url(r'^snippets/',include('snippets.urls')),
 )
 
